@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>프로젝트2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+
+<style>
+    html {height: 100%;
+    	scroll-behavior: smooth;
+      font-family: 'Noto Sans KR', sans-serif;}
+    body {height: 100%;
+		  overflow-x: hidden;
+    	  padding: 0;
+    	  margin: 0;}
+    a{text-decoration: none; 
+      color: #000;}
+    ol, ul {list-style: none;}
+    header {position: fixed;
+      		z-index: 10;
+      		width: 100%;}
+ 		
+
+    .header {width: 100%;
+      		  height: 120px;
+      		  margin: 0px;
+      		  border-bottom: 2px solid black;
+    		  background: rgba(255, 255, 255, 0.9);
+      		  box-sizing: border-box;}
+    .header .inner {width: 1400px;
+    				height: 100%;
+    				margin: 0px auto;
+      				      border-bottom: 2px solid black;
+      				      position: relative;}
+    .header h1 {font-size: 25px;
+      			   font-weight: 700;
+      			   position: absolute;
+      			   top: 50%;
+      			   margin-top: -13px;
+      			   left: 10px;
+               font-family: 'Montserrat', sans-serif;}
+    .header h1 div {color: gray;
+        				font-size: 18px;}
+    .header .menu {text-align: right;}
+    .header .menu ul {display: inline-block;}
+    .header .menu ul:after {content: "";
+							display: block;
+							clear: both;}
+    .header .menu li {float: left;
+      				  padding: 0 50px;
+      				  font-size: 18px;
+      				  font-weight: 700;
+      				  line-height: 90px;
+      				  margin-top: 15px;}
+    .header .menu a {position: relative;}
+    .header .menu a::after {content: "";
+    						position: absolute;
+    						bottom: -5px;
+    						left: 0;
+    						width: 100%;
+    						height: 1px;
+    						background: black;
+    						transform: scaleX(0);
+    						transition: 0.3s all ease-out;}
+    .header .menu li:hover > a::after {transform: scaleX(1);}
+
+
+    .main {padding-top: 120px;}
+    .main .section1 {width:1300px;
+      				      position: relative;
+    				        margin: 40px auto;
+      				      box-sizing: border-box;}
+    .main .section1:after {content: "";
+      						        display: block;
+      						        clear: both;}
+    .main .section1 .image_area {float: left;
+     							 width: 50%;
+     							 height: 650px;
+    							 text-align: center;
+     							 box-sizing: border-box;
+     							 padding: 20px;}
+    .main .section1 .text_area {float: right;
+      							width: 50%;
+      							box-sizing: border-box;
+      							padding: 25px 140px 25px 45px;
+      							height: 650px;}
+    .main hr {width: 1260px;
+      		  border: 0;
+      		  border-top: 1px solid lightgray;
+      		  box-sizing: border-box;}
+
+    .main .section1 .image {background: url(1.jpg) no-repeat;
+      						border: 1px solid #ededed;
+      						box-sizing: border-box;
+      						width: 100%;
+      						height: 100%;
+      						background-size: cover;
+      						background-position: center;}
+    .main .section1 .text_area .title {font-size: 45px;
+      									font-weight: 700;}
+    .main .section1 .text_sub_area {margin-top: 30px;
+      								margin-bottom: 30px;}
+    .main .section1 .text_sub_area p {margin: 5px 0px;
+      								font-size: 15px;
+      								line-height: 1.4;}
+    .main .section1 .button .button_inner {margin-bottom: 15px;}
+    .main .section1 .button p {font-size: 15px;
+      						font-weight: 700;
+      						margin-bottom: 7px;}
+    .main .section1 input[type="radio"] {display: none;}
+    .main .section1 input[type="radio"] + label {display: inline-block;
+    											width: 100px;
+    											height: 40px;
+    											margin-right: 7px;
+    											font-weight: 400;
+    											font-size: 13px;
+    											line-height: 40px;
+    											text-align: center;
+    											color: black;
+    											background: rgb(239,239,239);
+    											cursor: pointer;
+                          transition: 0.3s;}
+    .main .section1 input[type="radio"]:checked + label {background: gray;
+    														                          color: white;
+                                                          transition: 0.3s;}
+    .main .section1 .price {margin-top: 30px;
+      						margin-bottom: 0px;}
+   	.main .section1 .price p {margin: 0px;
+   							padding-top: 10px;
+							font-size: 15px;
+							font-weight: 400;
+							border-top: 1px solid lightgray;
+							text-align: right;}
+   	.main .section1 .main_button {margin-top: 25px;}
+    .main .section1 .main_button button {border: 0px;
+      									outline: 0px;
+      									cursor: pointer;
+      									width: 220px;
+      									height: 60px;
+      									font-size: 20px;}
+    .main .section1 .main_button button:first-child {margin-right: 20px;
+      												font-weight: 600;}
+    .main .section1 .main_button button:last-child {background-color: black;
+    												color: #fff;
+    												font-weight: 600;}
+
+    /*
+    .main .section1 .button_inner button {border: 0px;
+      									outline: 0px;
+      									cursor: pointer;
+      									width: 100px;
+      									height: 40px;
+      									margin-right: 15px;
+      									font-weight: 600;}
+    .main .section1 .button_inner .active {background-color: gray;
+      										                color: #fff;}
+
+
+
+    		<div class="area_brush button_inner">
+              <button class="brush_btn active">블랙</button>
+              <button class="brush_btn">화이트</button>
+              <button class="brush_btn">그레이</button>
+            </div>
+            <div class="area_paste button_inner">
+              <p>치약</p>
+              <button class="paste_btn active">블랙(구취)</button>
+              <button class="paste_btn">화이트(미백)</button>
+              <button class="paste_btn">그레이(잇몸)</button>
+            </div>
+            <div class="area_cleaner button_inner">
+              <p>혀 클리너</p>
+              <button class="cleaner_btn active">블랙</button>
+              <button class="cleaner_btn">화이트</button>
+            </div>
+	*/
+
+
+    .main .section2 {width:1300px;
+      				      position: relative;
+      				      margin: 40px auto;
+    				        box-sizing: border-box;}
+    .main .section2 .text_area {box-sizing: border-box; 
+    							               padding: 30px 20px; 
+    							               text-align: center; 
+    							               height: 280px;}
+    .main .section2 .text_area .title {font-size: 50px;
+   									                  font-weight: 900;}
+    .main .section2 .text_sub_area {margin-top: 80px;
+      								              font-size: 15px;}
+    .main .section2 .text_sub_area p {margin: 5px;}
+
+
+
+    .main .section3 {width:1300px;
+                    position: relative;
+                    margin: 80px auto;
+                    box-sizing: border-box;
+                    padding: 20px;}
+    .main .section3 .bg_area {background: url(2.jpg) no-repeat;
+                              width: 100%;
+                             height: 600px;
+                             background-size: cover;
+                             background-position: center;}
+    .main .section3 .text_area {position: absolute;
+                              width: 50%;
+                              height: 600px;
+                              padding: 140px 80px;
+                              box-sizing: border-box;
+                              z-index: 5;
+                          	  right: 0;}
+    .main .section3 .title {font-size: 45px;}
+    .main .section3 .text_sub_area {margin-top: 50px;
+      								font-size: 25px;
+      								color: gray;}
+    .main .section3 .text_sub_area p {margin-top: 10px;
+      								  margin-bottom: 10px;}
+
+
+    .main .section4:after {content: "";
+      					           display: block;
+      					           clear: both;}
+    .main .section4 .image_area {float: left; 
+                                 width: 50%;
+    							               height:500px; 
+    							               text-align: center; 
+    							               box-sizing: border-box; 
+    							               padding: 20px;}
+    .main .section4 .text_area {float: right; 
+    							             width: 50%; 
+    							             box-sizing: border-box; 
+    							             padding: 100px 60px; 
+    							             height: 500px;}
+    .main .section4 .image {background: url(3.jpg) no-repeat;; 
+      						          box-sizing: border-box;
+      						          width: 100%;
+      						          height: 100%;
+    						            background-size: cover;
+    						            background-position: center;}
+    .main .section4 {width:1300px;
+    				        position: relative;
+      				      margin: 80px auto;
+     				         box-sizing: border-box;}
+    .main .section4 .title {font-size: 45px;}
+    .main .section4 .text_sub_area {margin-top: 50px;
+      								              font-size: 15px;}
+    .main .section4 .text_sub_area p {margin-top: 2px;
+      								                margin-bottom: 2px;}
+
+
+    .main .section5:after {content: "";
+      					           display: block;
+      					           clear: both;}
+    .main .section5 .image_area {float: right; 
+    							               width: 50%; 
+    							               height:500px; 
+    							               text-align: center; 
+    							               box-sizing: border-box; 
+    							               padding: 20px;}
+    .main .section5 .text_area {float: left; 
+    							             width: 50%; 
+    							             box-sizing: border-box; 
+    							             padding: 100px 20px; 
+    							             height: 500px;}
+    .main .section5 .image {background: url(4.jpg) no-repeat;; 
+      						          box-sizing: border-box;
+      						          width: 100%;
+      						          height: 100%;
+      						          background-size: cover;
+      						          background-position: center;}
+    .main .section5 {width:1300px;
+      				      position: relative;
+      				      margin: 80px auto;
+      				      box-sizing: border-box;}
+    .main .section5 .title {font-size: 45px;}
+    .main .section5 .text_sub_area {margin-top: 50px;
+      								              font-size: 15px;}
+    .main .section5 .text_sub_area p {margin-top: 2px;
+     								                 margin-bottom: 2px;}
+
+    .main .section6:after {content: "";
+                          display: block;
+                          clear: both;}
+    .main .section6 .image_area {float: left; width: 50%; 
+                                height:500px; text-align: center;
+                                box-sizing: border-box;
+                                padding: 20px;}
+    .main .section6 .text_area {float: right;
+                                width: 50%;
+                                box-sizing: border-box;
+                                padding: 100px 60px;
+                                height: 500px;}
+    .main .section6 .image {background: url(5.jpg) no-repeat;;
+                            box-sizing: border-box;
+                            width: 100%;
+                            height: 100%;
+                            background-size: cover;
+                            background-position: center;}
+    .main .section6 {width:1300px;
+                    position: relative;
+                    margin: 80px auto;
+                    box-sizing: border-box;}
+
+    .main .section6 .title {font-size: 45px;}
+    .main .section6 .text_sub_area {margin-top: 50px;
+                                    font-size: 15px;}
+    .main .section6 .text_sub_area p {margin-top: 2px;
+                                      margin-bottom: 2px;}
+
+
+    .main .section7 {width:1300px;
+                    position: relative;
+                    margin: 80px auto;
+                    box-sizing: border-box;
+                    padding: 20px;}
+    .main .section7 .bg_area {background: url(6.jpg) no-repeat;
+                              width: 100%;
+                             height: 600px;
+                             background-size: cover;
+                             background-position: center;}
+    .main .section7 .txt_area {position: absolute;
+                              width: 50%;
+                              height: 600px;
+                              padding: 150px 80px;
+                              box-sizing: border-box;
+                              z-index: 5;}
+    .main .section7 .title {font-size: 45px;}
+    .main .section7 .text_sub_area {margin-top: 50px;
+                                    font-size: 15px;}
+    .main .section7 .text_sub_area p {margin-top: 2px;
+                                      margin-bottom: 2px;}
+
+
+    .main .section8 {width:1300px;
+                    position: relative;
+                    margin: 80px auto;
+                    box-sizing: border-box;
+                    padding: 20px;}
+    .main .section8 .bg_area {background: url(7.jpg) no-repeat;
+                              width: 100%;
+                              height: 600px;
+                              background-size: cover;
+                              background-position: center;}
+    .main .section8 .txt_area {position: absolute;
+                              width: 50%;
+                              height: 600px;
+                              padding: 150px 80px;
+                              box-sizing: border-box;
+                              z-index: 5;}
+    .main .section8 .title {font-size: 45px;}
+    .main .section8 .text_sub_area {margin-top: 50px;
+                                    font-size: 15px;}
+    .main .section8 .text_sub_area p {margin-top: 2px;
+                                      margin-bottom: 2px;}
+
+
+    .main .section9 {width:1300px;
+                    position: relative;
+                    margin: 80px auto;
+                    box-sizing: border-box;
+                    padding: 20px;}
+
+    .main .section9 img {width: 380px;
+    					margin-bottom: 50px;}
+    .main .section9 .txt_number {font-size: 18px;}
+    .main .section9 .txt_detail {font-size: 18px;}
+    .main .section9 .text_sub_area {margin-top: 50px;
+                                    font-size: 14px;}
+    .main .section9 .text_sub_area p {margin-top: 2px;
+                                      margin-bottom: 2px;}
+    .main .section9 ul {padding: 0;}
+    .main .section9 ul:after {content: "";
+                              display: block;
+                              clear: both;}
+    .main .section9 li {float: left;
+                        margin-right: 60px;
+                        width: 380px;
+                        text-align: center;}
+    .main .section9 li:last-child {margin-right: 0px;
+                        		height: 380px;}
+
+
+    .main .section10 {width:1300px;
+                      position: relative;
+                      margin: 80px auto;
+                      box-sizing: border-box;
+                      padding: 20px;}
+    .main .section10 .bg_area {background: url(8.jpg) no-repeat;
+                              width: 100%;
+                              height: 600px;
+                              background-size: cover;
+                              background-position: center;}
+    .main .section10 .txt_area {position: absolute;
+                                width: 50%;
+                                height: 600px;
+                                padding: 150px 80px;
+                                box-sizing: border-box;
+                                z-index: 5;
+                                right: 0;}
+    .main .section10 .title {font-size: 45px;}
+    .main .section10 .text_sub_area {margin-top: 50px;
+                                    font-size: 15px;}
+    .main .section10 .text_sub_area p {margin-top: 2px;
+                                        margin-bottom: 2px;}
+
+
+    .main .section11 {width:1300px;
+                  position: relative;
+                  margin: 80px auto;
+                  box-sizing: border-box;
+                  padding: 20px;}
+    .main .section11 img {margin-bottom: 50px;}
+    .main .section11 .txt_number {font-size: 18px;}
+    .main .section11 .txt_detail {font-size: 18px;}
+    .main .section11 .text_sub_area {margin-top: 50px;
+                                    font-size: 14px;}
+    .main .section11 .text_sub_area p {margin-top: 2px;
+                                      margin-bottom: 2px;}
+    .main .section11 ul {padding: 0;}
+    .main .section11 ul:after {content: '';
+                              display: block;
+                              clear: both;}
+    .main .section11 li {float: left;
+                        margin-right: 60px;
+                        width: 380px;
+                        text-align: center;}
+    .main .section11 li:last-child {margin-right: 0px;}
+    .main .section11 img {width: 100%;
+                          height: 380px;}
+
+
+    .main .section12 {width:1300px;
+                      position: relative;
+                      margin: 80px auto;
+                      box-sizing: border-box;
+                      padding: 20px;}
+    .main .section12 .bg_area {background: url(9.jpg) no-repeat;
+                                width: 100%;
+                                height: 600px;
+                                background-size: cover;
+                                background-position: center;}
+    .main .section12 .txt_area {position: absolute;
+                                width: 50%;
+                                height: 600px;
+                                padding: 150px 80px;
+                                box-sizing: border-box;
+                                z-index: 5;}
+    .main .section12 .title {font-size: 45px;}
+    .main .section12 .text_sub_area {margin-top: 50px;
+                                    font-size: 15px;}
+    .main .section12 .text_sub_area p {margin-top: 2px;
+                                      margin-bottom: 2px;}
+
+
+    .main .section13 {width:1300px;
+                      position: relative;
+                      margin: 80px auto;
+                      box-sizing: border-box;
+                      padding: 20px;}
+
+    .main .section13 img {margin-bottom: 50px;}
+    .main .section13 .txt_number {font-size: 18px;}
+    .main .section13 .txt_detail {font-size: 18px;}
+    .main .section13 .text_sub_area {margin-top: 50px;
+                                    font-size: 14px;}
+    .main .section13 .text_sub_area p {margin-top: 2px;
+                                       margin-bottom: 2px;}
+    .main .section13 ul {padding: 0;}
+    .main .section13 ul:after {content: "";
+                              display: block;
+                              clear: both;}
+    .main .section13 li {float: left;
+                        margin-right: 160px;
+                        width: 550px;
+                        text-align: center;}
+    .main .section13 li:last-child {margin-right: 0px;}
+    .main .section13 img {width: 100%;
+                          height: 480px;}
+
+
+    .main .section14 {width:1300px;
+                      position: relative;
+                      margin: 80px auto;
+                      box-sizing: border-box;
+                      padding: 20px;}
+    .main .section14 .bg_area {background: url(10.jpg) no-repeat;
+                              width: 100%;
+                              height: 600px;
+                              background-size: cover;
+                              background-position: center;ㄹ}
+    .main .section14 .txt_area {position: absolute;
+                                width: 50%;
+                                height: 600px;
+                                padding: 190px 80px;
+                                box-sizing: border-box;
+                                z-index: 5;}
+    .main .section14 .title {font-size: 45px;}
+    .main .section14 .text_sub_area {margin-top: 50px;
+                                    font-size: 15px;}
+    .main .section14 .text_sub_area p {margin-top: 2px;
+                                      margin-bottom: 2px;}
+
+
+    .main .section15 {width:1300px;
+                      position: relative;
+                      margin: 80px auto;
+                      box-sizing: border-box;
+                      padding: 20px;}
+    .main .section15 .bg_area {background: url(11.jpg) no-repeat;
+                              width: 50%;
+                              height: 600px;
+                              background-size: cover;
+                              background-position: center;
+                              margin: 0px auto;}
+    .main .section15 .txt_area {position: absolute;
+                                width: 50%;
+                                height: 600px;
+                                padding: 80px 80px;
+                                box-sizing: border-box;
+                                z-index: 5;
+                                left: 50%;
+                                margin-left: -325px;
+                                text-align: center;}
+    .main .section15 .title {font-size: 45px;}
+    .main .section15 .text_sub_area {margin-top: 50px;
+                                    font-size: 15px;}
+    .main .section15 .text_sub_area p {margin-top: 2px;
+                                      margin-bottom: 2px;}
+    .main .section15 button {background-color: black;
+                            color: #fff;
+                            font-weight: 600;
+                            border: 0px;
+                            outline: 0px;
+                            width: 160px;
+                            height: 45px;
+                            font-size: 16px;
+                            margin-top: 25px;
+                            cursor: pointer;}
+    .main .section15 a {width: 160px;
+                        height: 45px;}
+
+    .main .section16 {width:1300px;
+                      position: relative;
+                      margin: 80px auto;
+                      box-sizing: border-box;
+                      padding: 20px;}
+    .main .section16 .area_title {text-align: center;
+                                  margin-bottom: 70px;}
+    .main .section16 .title {font-size: 25px;}
+    .main .section16 .txt_number {font-size: 18px;}
+    .main .section16 .txt_detail {font-size: 18px;}
+    .main .section16 .text_sub_area {margin-top: 50px;
+                                    font-size: 14px;}
+    .main .section16 .text_sub_area p {margin-top: 2px;
+                                      margin-bottom: 2px;}
+    .main .section16 ul {padding: 0;}
+    .main .section16 ul:after {content: "";
+                              display: block;
+                              clear: both;}
+    .main .section16 li {float: left;
+                        margin-right: 60px;
+                        width: 380px;
+                        text-align: center;}
+    .main .section16 li:last-child {margin-right: 0px;}
+    .main .section16 img {width: 100%;
+                          height: 380px;}
+
+
+    .main .section17 {width:1300px;
+                      position: relative;
+                      margin: 80px auto;
+                      box-sizing: border-box;
+                      padding: 20px;}
+    .main .section17 .txt_number {font-size: 18px;}
+    .main .section17 .txt_detail {font-size: 25px;}
+    .main .section17 .text_sub_area {margin-top: 50px;
+                                    font-size: 12px;
+                                    line-height: 22px;}
+    .main .section17 .text_sub_area li:before {content:"·";
+                                              font-size:15px;
+                                              margin-right: 5px;}
+    .main .section17 .text_sub_area p {margin-top: 2px;
+                                      margin-bottom: 2px;}
+    .main .section17 ul {padding: 0;}
+    .main .section17 ul:after {content: "";
+                              display: block;
+                              clear: both;}
+    .main .section17 li {float: left;
+                        margin-right: 100px;
+                        width: 580px;
+                        text-align: left;}
+    .main .section17 li:last-child {margin-right: 0px;}
+    .main .section17 img {width: 100%;
+                          height: 480px;}
+
+
+    .footer {width: 100%;
+            height: 120px;
+            margin: 0px auto;
+            box-sizing: border-box;
+			border-top: 1px solid lightgray;}
+    .footer .inner {width: 1300px;
+    				margin: 0px auto;
+                    position: relative;
+                    padding: 30px 0px;
+                    line-height: 20px;
+                    text-align: center;}
+    .footer button {background-color: black;
+                    color: #fff;
+                    font-weight: 600;
+                    border: 0px;
+                    outline: 0px;
+                    width: 160px;
+                    height: 45px;
+                    font-size: 16px;
+                    margin-bottom: 50px;
+                    cursor: pointer;}
+    .footer ul {padding: 0px;}
+	.footer ul:after {content: "";
+							display: block;
+							clear: both;}
+    .footer li {float: left;
+      			box-sizing: border-box;}
+    .footer .left_footer {width: 15%;
+      					height: 100%;
+      					text-align: left;}
+    .footer .left_footer h1 {font-size: 20px;
+    						font-weight: 700;
+    						font-family: 'Montserrat', sans-serif;
+    						line-height: 1.3;
+    						margin: 0px;}
+    .footer .left_footer h1 div {color: gray;
+        						font-size: 15px;}
+    .footer .center_footer {width: 35%;
+    						text-align: left;
+      						padding-left: 100px;}
+    .footer .center_footer p {font-size: 12px;
+      						font-weight: 400;
+      						margin-bottom: 10px;
+      						margin-top: 0px;}
+    .footer .center_footer b {font-weight: 700;}
+    .footer .right_footer {width: 50%;
+							font-size: 12px;
+							font-weight: 300;
+							text-align: right;}
+    .footer .space {padding: 0px 20px;
+      				color: lightgray;}
+</style>
+
+
+<body>
+	<header>
+      <div class="header">
+        <div class="inner">
+          <h1><a href="index.html">DENTAL CARE<div>All in 1 Package</div></a></h1>
+          <div class="menu">
+            <ul>
+              <li><a href="#1" class="menu1">문제와 해결</a></li>
+              <li><a href="#2" class="menu2">제품구성</a></li>
+              <li><a href="#3" class="menu3">정기구독</a></li>
+              <li><a href="#4" class="menu4">고객지원</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <div class="main" id="5">
+      <section class="section1">
+        <div class="image_area">
+          <div class="image"></div>
+        </div>
+        <div class="text_area">
+          <b class="title">1인 패키지 정기구독</b>
+          <div class="text_sub_area">
+            <p>3가지 종류의 칫솔과 구강 고민별 치약,</p>
+            <p>혀클리너와 치간칫솔까지 포함한 패키지가</p>
+            <p>양치 생활의 새로운 경험을 제공합니다.</p>
+          </div>
+          <div class="button">
+            <div class="area_brush button_inner">
+              <p>칫솔</p>
+				<input type="radio" name="tabmenu" id="tab01" checked>
+			  	<label for="tab01">블랙</label>
+			  	<input type="radio" name="tabmenu" id="tab02">
+			  	<label for="tab02">화이트</label>
+			  	<input type="radio" name="tabmenu" id="tab03">
+			  	<label for="tab03">그레이</label>
+			</div>
+
+            <div class="area_paste button_inner">
+              <p>치약</p>
+			  <input type="radio" name="tabmenu2" id="tab05" checked>
+			  <label for="tab05">블랙(구취)</label>
+			  <input type="radio" name="tabmenu2" id="tab06">
+			  <label for="tab06">화이트(미백)</label>
+			  <input type="radio" name="tabmenu2" id="tab07">
+			  <label for="tab07">그레이(잇몸)</label>
+			</div>
+
+            <div class="area_cleaner button_inner">
+              <p>혀 클리너</p>
+			  	<input type="radio" name="tabmenu3" id="tab08" checked>
+			  	<label for="tab08">블랙</label>
+			  	<input type="radio" name="tabmenu3" id="tab09">
+			  	<label for="tab09">화이트</label>
+			</div>
+
+			<div class="price">
+            	<p>첫 결제 <b>19,200원</b> (이후 매월 4,900원)</p>
+          	</div>
+
+            <div class="main_button">
+              <button id="1">장바구니</button>
+              <button>구매하기</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr>
+
+
+      <section class="section2">
+        <div class="text_area">
+          <b class="title">관리의 시작</b>
+          <div class="text_sub_area">
+            <p>이제는 나에게 어떤 제품이 맞는지 고민해보고</p>
+            <p>내 위생을 책임지는 제품에 더욱 관심을 가질 때입니다.</p>
+            <p>완벽한 구성의 패키지와 함께 나의 컨디션에 맞는</p>
+            <p>최적의 제품을 선택할 수 있습니다.</p>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section3">
+        <div class="text_area">
+          <div><span class="title">당연함에 가려진</span></div>
+          <div><b class="title">욕실 속 문제</b></div>
+          <div class="text_sub_area">
+            <p>1. 아쉬운 디자인</p>
+            <p>2. 지켜지지 않는 교체주기</p>
+            <p>3. 잘못된 습관</p>
+          </div>
+        </div>
+        <div class="bg_area">
+        </div>
+      </section>
+
+
+      <section class="section4">
+        <div class="image_area">
+          <div class="image"></div>
+        </div>
+        <div class="text_area">
+          <div><b class="title">세심하게 다듬고</b></div>
+          <div><b class="title">유용함만을 남긴 디자인</b></div>
+          <div class="text_sub_area">
+            <p>실용적이고 심플한 디자인은 어느 공간에 놓아도</p>
+            <p>조화롭게 어울립니다. 또한, 사용성 면 역시</p>
+            <p>세심하게 고민하여 디자인 됐습니다.</p>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section5">
+        <div class="text_area">
+          <div><b class="title">위생적 사용을 위한</b></div>
+          <div><b class="title">유일한 대안, 교체</b></div>
+          <div class="text_sub_area">
+            <p>대부분의 세균은 사용한 도구를 보관하는 과정에서 만들어지며,</p>
+            <p>도구를 자구 바꿔 사용하자는 대안만이 존재합니다.</p>
+            <p>교체계획을 차일피일 미뤄본 경험이 있다면, 정기구독으로</p>
+            <p>대신할 수 있습니다.</p>
+          </div>
+        </div>
+        <div class="image_area">
+          <div class="image"></div>
+        </div>
+      </section>
+
+
+      <section class="section6">
+        <div class="image_area">
+          <div class="image"></div>
+        </div>
+        <div class="text_area">
+          <div><b class="title">모든 과정을</b></div>
+          <div><b class="title">완벽하게.</b></div>
+          <div class="text_sub_area">
+            <p>치아건강을 위한 제품으로 빈틈없이 구성된 패키지는</p>
+            <p>완벽한 관리를 가능하게 합니다. 양치하는 시간은</p>
+            <p>더 이상 귀찮은 것이 아닌 행복한 경험이 될 것입니다.</p>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section class="section7">
+        <div class="txt_area">
+          <div><b class="title">하나의 패키지로</b></div>
+          <div><b class="title">구강용품 고민 끝</b></div>
+          <div class="text_sub_area">
+            <p>나에게 맞는 칫솔 모, 치약 타입만 선택해주세요.</p>
+            <p>칫솔부터 혀 클리너까지, 빈틈없이 구성된 패키지로</p>
+            <p>구강용품에 대한 고민으로부터 자유로워질 수 있습니다.</p>
+          </div>
+        </div>
+        <div class="bg_area">
+        </div>
+      </section>
+
+
+
+      <section class="section8" id="2">
+        <div class="txt_area">
+          <div><b class="title">부드럽고 정교한</b></div>
+          <div><b class="title">3타입의 칫솔</b></div>
+          <div class="text_sub_area">
+            <p>모두의 잇몸상태가 같을 수는 없습니다.</p>
+            <p>항상 최적의 구강상태를 유지하기 위해 나에게</p>
+            <p>꼭 맞는 칫솔 모를 선택하세요.</p>
+          </div>
+        </div>
+        <div class="bg_area">
+        </div>
+      </section>
+
+
+
+      <section class="section9">
+        <ul>
+          <li>
+            <img src="brush_type1.jpg">
+            <div><b class="txt_number">1</b></div>
+            <div><b class="txt_detail">초미세모 - 0.01mm</b></div>
+            <div class="text_sub_area">
+              <p>잇몸이 약한 사람들을 위한 특수 브러쉬.</p>
+              <p>2500가닥 이상의 극세모가 잇몸 자극을 최소화해</p>
+              <p>임산부와 노약자 사용이 가능합니다.</p>
+            </div>
+          </li>
+          <li>
+            <img src="brush_type2.jpg">
+            <div><b class="txt_number">2</b></div>
+            <div><b class="txt_detail">미세모 - 0.16mm</b></div>
+            <div class="text_sub_area">
+              <p>일반모와 초미세모로 2중 구성된 특수 브러쉬.</p>
+              <p>잇몸의 자극을 줄여 상쾌한 경험을 선사합니다.</p>
+            </div>
+          </li>
+          <li>
+            <img src="brush_type3.jpg">
+            <div><b class="txt_number">3</b></div>
+            <div><b class="txt_detail">일반모 - 0.18mm</b></div>
+            <div class="text_sub_area">
+              <p>보통 굵기의 브러쉬.</p>
+              <p>일반모 특유의 탄력감으로 치석제거에 탁월합니다.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+
+
+      <section class="section10">
+        <div class="txt_area">
+          <div><b class="title">확실한 선택과 집중</b></div>
+          <div><b class="title">3타입의 치약</b></div>
+          <div class="text_sub_area">
+            <p>나에게 꼭 맞는 칫솔이 필요하듯 치약도 마친가지입니다.</p>
+            <p>구취, 미백, 잇몸 중 사용자의 주안점에 따라</p>
+            <p>치약을 선택하세요.</p>
+          </div>
+        </div>
+        <div class="bg_area">
+        </div>
+      </section>
+
+
+
+      <section class="section11">
+        <ul>
+          <li>
+            <img src="paste_type1.jpg">
+            <div><b class="txt_number">1</b></div>
+            <div><b class="txt_detail">블랙 - 구취케어</b></div>
+            <div class="text_sub_area">
+              <p>구취임상시험을 완료한 구취케어 전용 치약.</p>
+              <p>숯으로 만든 매력적인 치약으로 상쾌함만 오래오래.</p>
+            </div>
+          </li>
+          <li>
+            <img src="paste_type2.jpg">
+            <div><b class="txt_number">2</b></div>
+            <div><b class="txt_detail">화이트 - 미백케어</b></div>
+            <div class="text_sub_area">
+              <p>치아미백성분이 고함유된 미백케어 전용 치약.</p>
+              <p>하루 3번 집중 화이트닝으로 황니 고민 끝.</p>
+            </div>
+          </li>
+          <li>
+            <img src="paste_type3.jpg">
+            <div><b class="txt_number">3</b></div>
+            <div><b class="txt_detail">그레이 - 잇몸케어</b></div>
+            <div class="text_sub_area">
+              <p>건강한 잇몸케어를 위한 잇몸케어 전용 치약.</p>
+              <p>충치, 잇몸질환 원인 뮤탄스균, 진지발리스균 99.9% 감소</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+
+
+      <section class="section12">
+        <div class="txt_area">
+          <div><b class="title">완벽한 관리를 위한</b></div>
+          <div><b class="title">완벽한 구성</b></div>
+          <div class="text_sub_area">
+            <p>자신에게 맞는 제품으로 양치의 효율을 높였다면,</p>
+            <p>위생적인 구강관리에 필수적인 혀클리너와 치간칫솔로</p>
+            <p>완벽함을 더할 때입니다.</p>
+          </div>
+        </div>
+        <div class="bg_area">
+        </div>
+      </section>
+
+
+
+      <section class="section13">
+        <ul>
+          <li>
+            <img src="cleaner.jpg">
+            <div><b class="txt_detail">혀 클리너</b></div>
+            <div class="text_sub_area">
+              <p>혀에 붙어있는 세균과 박테리아 등 구취 유발원을</p>
+              <p>완벽하게 제거합니다.(블랙, 회이트 중 택1)</p>
+            </div>
+          </li>
+          <li>
+            <img src="interdental.jpg">
+            <div><b class="txt_detail">치간칫솔</b></div>
+            <div class="text_sub_area">
+              <p>올바른 양치질과 더불어 치간칫솔을 사용하여</p>
+              <p>빈틈없는 치아 관리를 할 수 있습니다.(사이즈별 4개 제공)</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+
+
+      <section class="section14">
+        <div class="txt_area">
+          <div><b class="title">환경까지 생각하는 선택</b></div>
+          <div class="text_sub_area">
+            <p>교체시기를 맞이한 칫솔은 리턴 프로그램으로 회수됩니다.</p>
+            <p>회수된 칫솔의 브러쉬 팁은 절단하여 파기하고 핸들은 분리하여</p>
+            <p>자원 재활용 업체에 기증됩니다.</p>
+          </div>
+        </div>
+        <div class="bg_area">
+        </div>
+      </section>
+
+
+
+      <section class="section15" id="3">
+        <div class="txt_area">
+          <div><b class="title">부담없이 시작하세요.</b></div>
+          <div class="text_sub_area">
+            <p>32% 저렴한 2인 패키지 정기구독으로 새로운</p>
+            <p>칫솔 경험을 시작하세요.</p>
+            <p>(첫 결제 19,200원 이후 매월 4,900원)</p>
+            <a href="#5"><button>시작하기</button></a>
+          </div>
+        </div>
+        <div class="bg_area">
+        </div>
+      </section>
+
+
+
+      <section class="section16">
+        <div class="area_title"><b class="title">정기구독 프로세스</b></div>
+        <ul>
+          <li>
+            <div><b class="txt_number">1</b></div>
+            <div><b class="txt_detail">스타터세트 경험</b></div>
+            <div class="text_sub_area">
+              <p>초미세모, 미세모, 일반모 3종 모 타입을</p>
+              <p>모두 사용해봅니다.</p>
+            </div>
+          </li>
+          <li>
+            <div><b class="txt_number">2</b></div>
+            <div><b class="txt_detail">모타입 결정</b></div>
+            <div class="text_sub_area">
+              <p>잇몸 컨디션에 맞는 모 타입을 찾으신 후</p>
+              <p>다음 배송 전까지 색상과 모 타입을 결정합니다.</p>
+            </div>
+          </li>
+          <li>
+            <div><b class="txt_number">3</b></div>
+            <div><b class="txt_detail">정기배송</b></div>
+            <div class="text_sub_area">
+              <p>3개월마다 무료로 정기 배송되며</p>
+              <p>배송 전 모 타입과 색상은 수시로 변경 가능합니다. </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+
+
+      <section class="section17" id="4">
+        <ul>
+          <li>
+            <div><b class="txt_detail">주의사항 및 배송정보</b></div>
+            <div class="text_sub_area">
+              <ul>
+                <li>고중량의 제품 부착 시 제품 성능과 접착력에 영향을 미칠 수 있습니다.</li>
+                <li>제품의 임의 가공 및 분해는 제품 파손의 원인이 됩니다.</li>
+                <li>어린이나 애완동물이 장난치지 않도록 주의 해주십시오. 부상등의 원인이 됩니다.</li>
+                <li>오후 2시까지 결제확인된 주무은 당일 출고되며 15,000원 이상 주문은 무료 배송,<br/>
+                    15,000원 미만은 2,500원의 배송비가 추가됩니다.
+                </li>
+                <li>배송비용:(15,000원 이상 구매 시 무료/제주도 3,000원 그외 도서지역 추가 5,000원)</li>
+                <li>배송소요기간:영업일 기준 출고후 평균 2~3일이 소요되며, 지역 및 배송사</li>
+                <li>사정에 따라 지연될수 있으며, 천재지변, 물량 수급 변동등에 따른 지연이 될 수 있습니다.</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div><b class="txt_detail">교환,환불 A/S안내</b></div>
+            <div class="text_sub_area">
+              <ul>
+                <li>상품 수령일로부터 7일 이내 반품/환불 가능합니다.</li>
+                <li>단순 변심의 경우 왕복배송비를 차감한 금액이 환불되며, 제품 및 포장 상태가 재판매 가능하여야 합니다.</li>
+                <li>상품 불량인 경우는 배송비를 포함한 전액이 환불됩니다.</li>
+                <li>출고 이후 환불요청 시 상품 회수 후 처리됩니다.</li>
+                <li>다음의 경우에는 교환/반품이 제한됩니다.</li>
+                <li>고객의 사용, 시간경과, 일부 소비에 의하여 상품의 가치가 현저히 감소한 경우</li>
+                <li>구성품의 분실, 누락 및 파손 혹은 포장이 훼손되어 상품의 가치가 현저히 감소한 경우</li>
+                <li>모니터 해상도의 차이로 인해 색상이나 이미지가 실제와 달라, 혹은 고객이 단순 변심으로<br/>
+                    교환/반품을 무료로 요청하는 경우
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+    <footer>
+      <div class="footer">
+        <div class="inner">
+          <a href="#5"><button>맨위로</button></a>
+          <ul>
+            <li class="left_footer">
+            	<div class="footer_title">
+            	<h1>DENTAL CARE<div>All in 1 Package</div></h1>
+            	</div>
+        	</li>
+            <li class="center_footer">
+            	<p><b>UX 디자인 심화 - 프로젝트2</b><span class="space">|</span><span>'2만원의 행복' 컨셉 웹 페이지</span></p>
+            	<p><b>제작</b><span class="space">|</span><span>디자인학과 임민혁</span></p>
+            	<p><b>원제품</b><span class="space">|</span><span>유즈툴컴퍼니 / 언파 / 생활도감 / 라이브오랄스</span></p>
+            </li>
+            <li class="right_footer">
+                ⓒ 2020 Dental Care All in 1 Package. All rights reserved.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
